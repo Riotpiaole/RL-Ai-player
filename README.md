@@ -6,7 +6,7 @@
 
 ## GYM starting
 
-- run `docker build -t  dl ./src/gym`
+- run `docker build -t  dl ./src/gym` it takes really long
 
 - to run the jupyter notebook run `docker run --rm -it -v ABSOULTE_PATH_TO_SRC/src/gym/notebook/:/notebook -p 8888:8888 dl`
 
