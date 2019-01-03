@@ -6,11 +6,13 @@
 
 ## GYM starting
 
-- run `docker build --rm -t  dl ./src/gym` it takes really long
+- to build all the images `docker-compose bulid`
 
-- to run the jupyter notebook run `docker run --rm -it -v ABSOULTE_PATH_TO_SRC/src/gym/notebook/:/notebook -p 8888:8888 dl`
+- to run all the container run `docker-compose up -d`
 
-- visit `localhost:8888?token=THE_TOKENS_THAT_SHOWN_IN_TERMINAL`
+- check for the tokens of jupyter notebook tokens with running `docker-compose logs notebook` to obtain `?token=SOME_HASH_STRING`
+
+- and visit `localhost:8888?token=THE_TOKENS_THAT_SHOWN_IN_TERMINAL` with your browser
 
 ## Testing MDD with flink with docker compose
 
