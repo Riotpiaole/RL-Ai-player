@@ -18,7 +18,7 @@
 
 # Set the FLINK_DOCKER_IMAGE_NAME environment variable to override the image name to use
 
-version: "2.1"
+version: "2.3"
 services:
   jobmanager:
     image: ${FLINK_DOCKER_IMAGE_NAME:-flink}
@@ -50,4 +50,11 @@ services:
     environment:
       - MONGO_DATA_DIR=/data/db
       - MONGO_LOG_DIR=/dev/null
-
+  notebook:
+    container_name: notebook
+    image: dl:latest
+    ports:
+      - '8888:8888'
+    build: ./src/gym
+    volumes:
+      - ${PWD}/src/gym/notebook:/notebook

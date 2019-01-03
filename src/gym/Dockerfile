@@ -71,7 +71,7 @@ RUN pip3 install --upgrade gym[atari]
 EXPOSE 8888
 
 VOLUME ./notebook
-WORKDIR ./notebook
+WORKDIR /notebook
 
 COPY run_jupyter.sh /
 RUN ["chmod", "+x","/run_jupyter.sh"]
