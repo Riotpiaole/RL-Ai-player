@@ -1,6 +1,7 @@
 version: "2.3"
 services:
   jobmanager:
+    container_name: flink_jobmanager
     image: ${FLINK_DOCKER_IMAGE_NAME:-flink}
     expose:
       - "6123"
@@ -11,6 +12,7 @@ services:
       - JOB_MANAGER_RPC_ADDRESS=jobmanager
 
   taskmanager:
+    container_name: flink_taskmanager
     image: ${FLINK_DOCKER_IMAGE_NAME:-flink}
     expose:
       - "6121"

@@ -66,7 +66,10 @@ RUN pip3 install --upgrade pip==9.0.3 && \
                            keras && \
     python3 -m ipykernel.kernelspec
 
-RUN pip3 install --upgrade gym[atari]
+COPY requirements.txt  /
+
+# customizes a requirements file for easier dependencies changes
+RUN pip3 install -r /requirements.txt
 
 EXPOSE 8888
 
