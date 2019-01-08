@@ -1,0 +1,10 @@
+numpy
+scipy
+sklearn
+tqdm
+gym
+gym[box2d]
+gym[atari]
+seaborn
+seaborn
+keras

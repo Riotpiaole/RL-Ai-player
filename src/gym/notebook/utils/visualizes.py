@@ -6,6 +6,8 @@ from IPython.display import display
 def display_frames_as_gif(frames):
     """
     Displays a list of frames as a gif, with controls
+    (frames) -> list of np array in uint8
+    render gif at jupyter notebook with playback
     """
     plt.figure(figsize=(frames[0].shape[1] / 72.0, frames[0].shape[0] / 72.0), dpi = 72)
     patch = plt.imshow(frames[0])
