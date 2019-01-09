@@ -6,6 +6,9 @@ class Q_Exp_Agent():
         self.env = env
         self.shape = env.observation_space.shape
         self.action_shape = env.action_space.n
-        self.experience_replay = {}
+        self.q_table = {}
 
         self.replay_frames = []
+
+    def lookup(self, observation):
+        self.q_table[str(observation)] = 0

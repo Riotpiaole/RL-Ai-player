@@ -1,4 +1,3 @@
-from tqdm import tqdm
 import numpy as np
 
 class Random_Agent():
