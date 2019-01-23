@@ -1,4 +1,4 @@
-version: "2.3"
+version: "3"
 services:
   jobmanager:
     container_name: flink_jobmanager
@@ -25,19 +25,50 @@ services:
     environment:
       - JOB_MANAGER_RPC_ADDRESS=jobmanager
 
-  db:
-    image: mongo:latest
+  mongodb:
+    container_name: db_1
+    image: mongo:3.4.7
     ports:
       - "27017:27017"
     environment:
       - MONGO_DATA_DIR=/data/db
       - MONGO_LOG_DIR=/dev/null
 
+  sqldb:
+    container_name: db_2
+    image: postgres
+    ports:
+      - "5432:5432"
+    restart: always
+    env_file: .env
+
   notebook:
     container_name: notebook
-    image: dl:latest
+    image: dl:0.0.0
     ports:
       - '8888:8888'
     build: ./src/gym
+    networks:
+      - notebook
     volumes:
       - ${PWD}/src/gym/notebook:/notebook
+
+  middle_ware:
+    container_name: middle_ware
+    image: nodejs-webpack-es6-image
+    build:
+      context: ./src/middle_ware
+      dockerfile: Dockerfile
+    env_file: .env
+    ports:
+      - 8080:8080
+    links:
+      - mongodb
+      - sqldb
+    networks:
+      - backend
+
+networks:
+  backend:
+    driver: "bridge"
+  notebook:

@@ -1,13 +1,34 @@
 {
-    "name": "docker_web_app",
-    "version": "1.0.0",
-    "description": "Node.js on Docker",
-    "author": "First Last <first.last@example.com>",
-    "main": "server.js",
-    "scripts": {
-      "start": "node server.js"
-    },
-    "dependencies": {
-      "express": "^4.16.1"
-    }
+  "name": "nodejs-es6-simple-webapp",
+  "description": "shopify 2019 dev challenges",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack && node build/app.bundle.js"
+  },
+  "keywords": [
+    "nodejs",
+    "es6",
+    "babel",
+    "webpack"
+  ],
+  "author": "Rock Liang (rlian072@uottawa.ca)",
+  "license": "MIT",
+  "dependencies": {
+    "babel-polyfill": "",
+    "express": "^4.16.2",
+    "mongodb": "^3.1.12",
+    "mongoose": "^5.4.4",
+    "request": "^2.88.0",
+    "faker": "^4.1.0",
+    "querystring": "^0.2.0",
+    "express-session": "^1.15.6",
+    "cookie-parser":"^1.4.3"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "webpack": "^3.1.11",
+    "webpack-dev-server": "^2.11.1"
   }
+}
